@@ -51,7 +51,8 @@ public interface DiscoverService {
             @Query("without_keywords") DiscoverFilter without_keywords,
             @Query("with_watch_providers") DiscoverFilter with_watch_providers,
             @Query("watch_region") String watch_region,
-            @Query("with_watch_monetization_types") String with_watch_monetization_types
+            @Query("with_watch_monetization_types") String with_watch_monetization_types,
+            @Query("with_text_query") String with_text_query
     );
 
     /**
@@ -86,7 +87,8 @@ public interface DiscoverService {
             @Query("with_keywords") DiscoverFilter with_keywords,
             @Query("with_watch_providers") DiscoverFilter with_watch_providers,
             @Query("watch_region") String watch_region,
-            @Query("with_watch_monetization_types") String with_watch_monetization_types
+            @Query("with_watch_monetization_types") String with_watch_monetization_types,
+            @Query("with_text_query") String with_text_query
     );
 
 }

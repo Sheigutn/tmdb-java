@@ -37,6 +37,7 @@ public class DiscoverTvBuilder {
     @Nullable private DiscoverFilter with_watch_providers;
     @Nullable private String watch_region;
     @Nullable private String with_watch_monetization_types;
+    @Nullable private String with_text_query;
 
     public DiscoverTvBuilder(DiscoverService discoverService) {
         this.discoverService = discoverService;
@@ -167,6 +168,11 @@ public class DiscoverTvBuilder {
         return this;
     }
 
+    public DiscoverTvBuilder with_text_query(@Nullable String with_text_query) {
+        this.with_text_query = with_text_query;
+        return this;
+    }
+
     public Call<TvShowResultsPage> build() {
         return discoverService.discoverTv(
                 language,
@@ -193,7 +199,8 @@ public class DiscoverTvBuilder {
                 with_keywords,
                 with_watch_providers,
                 watch_region,
-                with_watch_monetization_types
+                with_watch_monetization_types,
+                with_text_query
         );
     }
 
