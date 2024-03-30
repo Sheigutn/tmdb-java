@@ -15,6 +15,7 @@ import com.uwetrottmann.tmdb2.entities.PersonCastCredit;
 import com.uwetrottmann.tmdb2.entities.PersonCrewCredit;
 import com.uwetrottmann.tmdb2.entities.RatingObject;
 import com.uwetrottmann.tmdb2.entities.Trending;
+import com.uwetrottmann.tmdb2.enumerations.EpisodeType;
 import com.uwetrottmann.tmdb2.enumerations.MediaType;
 import com.uwetrottmann.tmdb2.enumerations.Status;
 import com.uwetrottmann.tmdb2.enumerations.VideoType;
@@ -39,6 +40,9 @@ public class TmdbHelper {
         // class types
         builder.registerTypeAdapter(Integer.class,
                 (JsonDeserializer<Integer>) (json, typeOfT, context) -> json.getAsInt());
+
+        builder.registerTypeAdapter(EpisodeType.class,
+                (JsonDeserializer<EpisodeType>) (json, typeOfT, context) -> EpisodeType.get(json.getAsString()));
 
         builder.registerTypeAdapter(MediaType.class,
                 (JsonDeserializer<MediaType>) (json, typeOfT, context) -> MediaType.get(json.getAsString()));
