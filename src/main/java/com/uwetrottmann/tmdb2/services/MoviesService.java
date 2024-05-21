@@ -1,34 +1,10 @@
 package com.uwetrottmann.tmdb2.services;
 
-import com.uwetrottmann.tmdb2.entities.AccountStates;
-import com.uwetrottmann.tmdb2.entities.AlternativeTitles;
-import com.uwetrottmann.tmdb2.entities.AppendToResponse;
-import com.uwetrottmann.tmdb2.entities.Changes;
-import com.uwetrottmann.tmdb2.entities.Credits;
-import com.uwetrottmann.tmdb2.entities.Images;
-import com.uwetrottmann.tmdb2.entities.Keywords;
-import com.uwetrottmann.tmdb2.entities.ListResultsPage;
-import com.uwetrottmann.tmdb2.entities.Movie;
-import com.uwetrottmann.tmdb2.entities.MovieExternalIds;
-import com.uwetrottmann.tmdb2.entities.MovieResultsPage;
-import com.uwetrottmann.tmdb2.entities.RatingObject;
-import com.uwetrottmann.tmdb2.entities.ReleaseDate;
-import com.uwetrottmann.tmdb2.entities.ReleaseDatesResults;
-import com.uwetrottmann.tmdb2.entities.ReviewResultsPage;
-import com.uwetrottmann.tmdb2.entities.Status;
-import com.uwetrottmann.tmdb2.entities.TmdbDate;
-import com.uwetrottmann.tmdb2.entities.Translations;
-import com.uwetrottmann.tmdb2.entities.Videos;
-import com.uwetrottmann.tmdb2.entities.WatchProviders;
-import java.util.Map;
+import com.uwetrottmann.tmdb2.entities.*;
 import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.DELETE;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.Path;
-import retrofit2.http.Query;
-import retrofit2.http.QueryMap;
+import retrofit2.http.*;
+
+import java.util.Map;
 
 public interface MoviesService {
 
@@ -127,7 +103,8 @@ public interface MoviesService {
      */
     @GET("movie/{movie_id}/credits")
     Call<Credits> credits(
-            @Path("movie_id") int movieId
+            @Path("movie_id") int movieId,
+            @Query("language") String language
     );
 
     /**
