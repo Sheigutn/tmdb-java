@@ -112,7 +112,8 @@ public interface TvSeasonsService {
     @GET("tv/{tv_id}/season/{season_number}/credits")
     Call<Credits> credits(
             @Path("tv_id") int tvShowId,
-            @Path("season_number") int tvShowSeasonNumber
+            @Path("season_number") int tvShowSeasonNumber,
+            @Query("language") String language
     );
 
     /**

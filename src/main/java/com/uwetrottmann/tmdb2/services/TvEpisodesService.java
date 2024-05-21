@@ -106,7 +106,8 @@ public interface TvEpisodesService {
     Call<Credits> credits(
             @Path("tv_id") int tvShowId,
             @Path("season_number") int tvShowSeasonNumber,
-            @Path("episode_number") int tvShowEpisodeNumber
+            @Path("episode_number") int tvShowEpisodeNumber,
+            @Query("language") String language
     );
 
     /**

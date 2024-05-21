@@ -89,7 +89,6 @@ public interface SearchService {
             @Query("query") String query,
             @Query("page") Integer page,
             @Query("language") String language,
-            @Query("region") String region,
             @Query("include_adult") Boolean includeAdult
     );
 

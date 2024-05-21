@@ -1,31 +1,10 @@
 package com.uwetrottmann.tmdb2.services;
 
-import com.uwetrottmann.tmdb2.entities.AccountStates;
-import com.uwetrottmann.tmdb2.entities.AlternativeTitles;
-import com.uwetrottmann.tmdb2.entities.AppendToResponse;
-import com.uwetrottmann.tmdb2.entities.Changes;
-import com.uwetrottmann.tmdb2.entities.ContentRatings;
-import com.uwetrottmann.tmdb2.entities.Credits;
-import com.uwetrottmann.tmdb2.entities.Images;
-import com.uwetrottmann.tmdb2.entities.Keywords;
-import com.uwetrottmann.tmdb2.entities.RatingObject;
-import com.uwetrottmann.tmdb2.entities.Status;
-import com.uwetrottmann.tmdb2.entities.TmdbDate;
-import com.uwetrottmann.tmdb2.entities.Translations;
-import com.uwetrottmann.tmdb2.entities.TvExternalIds;
-import com.uwetrottmann.tmdb2.entities.TvShow;
-import com.uwetrottmann.tmdb2.entities.TvShowResultsPage;
-import com.uwetrottmann.tmdb2.entities.Videos;
-import com.uwetrottmann.tmdb2.entities.WatchProviders;
-import java.util.Map;
+import com.uwetrottmann.tmdb2.entities.*;
 import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.DELETE;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.Path;
-import retrofit2.http.Query;
-import retrofit2.http.QueryMap;
+import retrofit2.http.*;
+
+import java.util.Map;
 
 public interface TvService {
 
@@ -85,6 +64,18 @@ public interface TvService {
     @GET("tv/{tv_id}/account_states")
     Call<AccountStates> accountStates(
             @Path("tv_id") int tvShowId
+    );
+
+    /**
+     * Get the aggregate credits (cast and crew) that have been added to a TV show.
+     *
+     * @param tvShowId A Tv Show TMDb id.
+     * @param language <em>Optional.</em> ISO 639-1 code.
+     */
+    @GET("tv/{tv_id}/aggregate_credits")
+    Call<Credits> aggregateCredits(
+            @Path("tv_id") int tvShowId,
+            @Query("language") String language
     );
 
     /**
