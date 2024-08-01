@@ -15,6 +15,7 @@ public class Person extends BasePerson {
     public String homepage;
     public String imdb_id;
     public String place_of_birth;
+    public String known_for_department;
 
     public PersonExternalIds external_ids;
     public PersonCredits combined_credits;
